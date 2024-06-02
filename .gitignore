@@ -1,4 +1,4 @@
-/.env
+/env
 /user.txt
 /db.sqllite3
 /restaurant/migrations
