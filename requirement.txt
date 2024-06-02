@@ -1,4 +1,3 @@
 djangorestframework
 django
 djoser
-mysqlclient
