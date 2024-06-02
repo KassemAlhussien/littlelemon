@@ -1,5 +1,5 @@
-/env
-/user.txt
-/db.sqllite3
-/restaurant/migrations
-
+env
+user.txt
+db.sqlite3
+restaurant/migrations
+.gitignore
