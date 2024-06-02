@@ -4,29 +4,38 @@ from rest_framework.viewsets import ModelViewSet
 from .models import Menu, Booking
 from .serializers import MenuSerializer, BookingSerializer, UserSerializer
 from rest_framework.permissions import IsAuthenticated
-
+from rest_framework.throttling import UserRateThrottle,AnonRateThrottle
 
 class MenuItemsView(ListCreateAPIView):
     permission_classes = [IsAuthenticated]
+    throttle_classes   = [UserRateThrottle,AnonRateThrottle]
     model = Menu
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
 
 
 class MenuItemView(RetrieveUpdateAPIView, DestroyAPIView):
+    throttle_classes   = [UserRateThrottle,AnonRateThrottle]
     model = Menu
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
 
 
-class BookingView(ModelViewSet):
-    model = Booking
+class BookingView(ListCreateAPIView):
+    throttle_classes   = [UserRateThrottle,AnonRateThrottle]
+    queryset = Booking.objects.all()
+    serializer_class = BookingSerializer
+    permission_classes = [IsAuthenticated]
+
+class BookingViewDetails(RetrieveUpdateAPIView, DestroyAPIView):
+    throttle_classes   = [UserRateThrottle,AnonRateThrottle]
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
     permission_classes = [IsAuthenticated]
 
 
 class UserView(ModelViewSet):
+    throttle_classes   = [UserRateThrottle,AnonRateThrottle]
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]
