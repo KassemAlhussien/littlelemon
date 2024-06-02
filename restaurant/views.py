@@ -7,7 +7,6 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.throttling import UserRateThrottle,AnonRateThrottle
 
 class MenuItemsView(ListCreateAPIView):
-    permission_classes = [IsAuthenticated]
     throttle_classes   = [UserRateThrottle,AnonRateThrottle]
     model = Menu
     queryset = Menu.objects.all()
