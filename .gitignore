@@ -1,5 +1,0 @@
-env
-user.txt
-db.sqlite3
-restaurant/migrations
-.gitignore
