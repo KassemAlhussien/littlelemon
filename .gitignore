@@ -1,2 +1,4 @@
 .env
 user.txt
+db.sqllite3
+./restaurant/migration
